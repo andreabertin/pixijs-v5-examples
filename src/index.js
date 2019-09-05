@@ -1,3 +1,5 @@
+import 'pixi-tilemap';
+
 var tileSizeX = 128;
 var tileSizeY = 128;
 
@@ -20,7 +22,7 @@ app.loader.add('atlas', './assets/atlas.json');
 app.loader.add(["imgs/imgGround.png"]);
 app.loader.load((loader, resources) => {
 
-	//  console.log(PIXI.tilemap)
+	console.log(PIXI.tilemap)
 	var groundTiles = new PIXI.tilemap.CompositeRectTileLayer(0, PIXI.utils.TextureCache['imgs/imgGround.png']);
 	app.stage.addChild(groundTiles);
 

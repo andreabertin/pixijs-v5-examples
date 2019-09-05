@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
@@ -9,6 +10,9 @@ module.exports = {
 	},
 	devtool: 'inline-source-map',
 	plugins: [
+		new webpack.ProvidePlugin({
+		  PIXI: 'pixi.js'
+		}),
 		new CopyWebpackPlugin([{
 			from: 'build/assets',
 			to: 'assets'
@@ -16,10 +20,6 @@ module.exports = {
 		new CopyWebpackPlugin([{
 			from: 'build/imgs',
 			to: 'imgs'
-		}]),
-		new CopyWebpackPlugin([{
-			from: 'build/lib',
-			to: 'lib'
 		}]),
 		new HTMLWebpackPlugin({
 			template: 'build/index.html',
