@@ -1,7 +1,7 @@
 import 'pixi-tilemap';
 
-var tileSizeX = 128;
-var tileSizeY = 128;
+var tileSizeX = 32;
+var tileSizeY = 32;
 
 // App with width and height of the page
 const app = new PIXI.Application({
@@ -19,16 +19,18 @@ document.body.appendChild(app.view); // Create Canvas tag in the body
 // Load the bunny
 app.loader.add('bunny', './assets/bunny.png');
 app.loader.add('atlas', './assets/atlas.json');
-app.loader.add(["imgs/imgGround.png"]);
+app.loader.add(["assets/grass.png", "assets/brick.png"]);
 app.loader.load((loader, resources) => {
 
 	console.log(PIXI.tilemap)
-	var groundTiles = new PIXI.tilemap.CompositeRectTileLayer(0, PIXI.utils.TextureCache['imgs/imgGround.png']);
+	var groundTiles = new PIXI.tilemap.CompositeRectTileLayer(0, [PIXI.utils.TextureCache['assets/grass.png'], PIXI.utils.TextureCache['assets/brick.png']]);
 	app.stage.addChild(groundTiles);
 
-	for (var i = 0; i <= parseInt(window.innerWidth / tileSizeX); i++) {
+	var texturearray = ["assets/grass.png", "assets/brick.png"]
+
+	for (var i = 0; i <= 500; i++) {
 		for (var j = 0; j <= parseInt(window.innerWidth / tileSizeX); j++) {
-			groundTiles.addFrame('imgs/imgGround.png', i * tileSizeX, j * tileSizeY);
+			groundTiles.addFrame(texturearray[j%2], i * tileSizeX, j * tileSizeY);
 		}
 	}
 
@@ -42,6 +44,8 @@ app.loader.load((loader, resources) => {
 
 	// Put the rotating function into the update loop
 	app.ticker.add(delta => {
-		sprite.rotation += 0.02 * delta
+		//sprite.rotation += 0.02 * delta
+		sprite.x += 1 * delta;
+		groundTiles.pivot.set(sprite.x, sprite.y);
 	})
 })
