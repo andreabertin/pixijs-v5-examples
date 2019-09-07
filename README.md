@@ -1,6 +1,8 @@
 # pixijs-v5-examples
 Pixijs v5 examples with npm and webpack
 
+[![CircleCI](https://circleci.com/gh/andreabertin/pixijs-v5-examples.svg?style=svg)](https://circleci.com/gh/andreabertin/pixijs-v5-examples)
+
 Examples will be written in typescript, you can check webpack config files for its configuration.
 
 Looking for source? Check *src* folder
