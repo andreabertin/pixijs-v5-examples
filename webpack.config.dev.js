@@ -8,7 +8,17 @@ module.exports = {
 		contentBase: 'dist',
 		port: 3000
 	},
+	entry: './src/index',
+	resolve: {
+		extensions: ['.js', '.ts', '.tsx']
+	},
 	devtool: 'inline-source-map',
+	module: {
+		rules: [{
+			test: /\.tsx?$/,
+			loader: 'ts-loader'
+		}]
+	},
 	plugins: [
 		new webpack.ProvidePlugin({
 		  PIXI: 'pixi.js'

@@ -14,6 +14,10 @@ module.exports = {
             }
         }]
     },
+	entry: './src/index',
+	resolve: {
+		extensions: ['.js', '.ts', '.tsx']
+	},
     optimization: {
         minimizer: [new UglifyJSPlugin({
             uglifyOptions: {
@@ -23,6 +27,12 @@ module.exports = {
             }
         })]
     },
+	module: {
+		rules: [{
+			test: /\.tsx?$/,
+			loader: 'ts-loader'
+		}]
+	},
     plugins: [
 		new webpack.ProvidePlugin({
 		  PIXI: 'pixi.js'
