@@ -1,8 +1,5 @@
 import * as PIXI from 'pixi.js'
 
-const TILE_SIZE_W: number = 32;
-const TILE_SIZE_H: number = 32;
-
 export class RotatingBunnyExample {
 
     private app: PIXI.Application;
