@@ -1,5 +1,6 @@
 import { RotatingBunnyExample } from './RotatingBunnyExample';
 import { TileMapExample } from './TileMapExample';
+import { IntroExample } from './IntroExample';
 
 class PixiEsamples {
 
@@ -10,6 +11,8 @@ class PixiEsamples {
             new RotatingBunnyExample().run();
         } if (p === 'tilemap') {
             new TileMapExample().run();
+        } if (p === 'intro') {
+            new IntroExample().run();
         } else {
             new RotatingBunnyExample().run();
         }
